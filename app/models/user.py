@@ -26,9 +26,9 @@ class User(db.Model):
 
     def __init__(self,username,name,password,email):
         self.username = username
+        self.name = name
         self.password = password
         self.email = email
-        self.name = name
         self.create_at = datetime.now()
         self.update_at = datetime.now()
         self.role = 0

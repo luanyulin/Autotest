@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
-'''
+"""
 @Project:Autotest
 @File   :Jwt.py
 @IDE    :PyCharm
 @Author :Mefine
 @Date   :2024/9/27 11:00
-'''
+"""
 
 import hashlib
 from datetime import datetime, timedelta
@@ -23,7 +23,8 @@ class UserToken(object):
     def get_token(data):
         # 用户信息压缩成一串字符串，并附带3小时的过期时间
         new_data = dict({"exp":datetime.utcnow() + timedelta(hours=EXPIRED_HOUR)}, **data)
-        return jwt.encode(new_data, key=UserToken.key).decode()
+        # return jwt.encode(new_data, key=UserToken.key).decode('utf-8')
+        return jwt.encode(new_data, key=UserToken.key)
 
     @staticmethod
     def parse_token(token):

@@ -9,9 +9,11 @@
 '''
 
 from flask import Flask
+from flask_cors import CORS
 
 from config import Config
 
 At = Flask(__name__)
+CORS(At, supports_credentials=True)
 
 At.config.from_object(Config)
